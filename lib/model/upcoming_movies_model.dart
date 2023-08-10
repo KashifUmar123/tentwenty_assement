@@ -28,20 +28,6 @@ class UpcomingMovies {
       totalResults: json['total_results'],
     );
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-
-    data['dates'] = dates.toJson();
-
-    data['page'] = page;
-
-    data['results'] = results.map((v) => v.toJson()).toList();
-
-    data['total_pages'] = totalPages;
-    data['total_results'] = totalResults;
-    return data;
-  }
 }
 
 class Dates {
