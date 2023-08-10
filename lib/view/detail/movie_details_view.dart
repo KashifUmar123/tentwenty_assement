@@ -218,20 +218,27 @@ class _MoviesDetilsViewState extends State<MoviesDetilsView> {
                 SizedBox(
                   height: 15.h,
                 ),
-                Container(
-                  height: 50.h,
-                  width: 243.w,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.r),
-                    color: AppColors.skyBlueColor,
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Get Tickets",
-                      style: TextStyle(
-                        color: AppColors.whiteColor,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 14.sp,
+                InkWell(
+                  onTap: () {
+                    locator<NavService>()
+                        .nav
+                        .pushNamed(RoutesNames.cinemaDetails);
+                  },
+                  child: Container(
+                    height: 50.h,
+                    width: 243.w,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.r),
+                      color: AppColors.skyBlueColor,
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Get Tickets",
+                        style: TextStyle(
+                          color: AppColors.whiteColor,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14.sp,
+                        ),
                       ),
                     ),
                   ),

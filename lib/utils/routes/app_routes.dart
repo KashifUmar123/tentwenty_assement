@@ -4,7 +4,10 @@ import 'package:tentwenty_assement/utils/routes/undefined_route.dart';
 import 'package:tentwenty_assement/view/detail/movie_details_view.dart';
 import 'package:tentwenty_assement/view/detail/watch_trailer_view.dart';
 import 'package:tentwenty_assement/view/home/home_view.dart';
+import 'package:tentwenty_assement/view/seats/cinema_details_view.dart';
 import 'package:tentwenty_assement/view/splash/splash_view.dart';
+
+import '../../view/seats/select_seats_view.dart';
 
 class AppRoutes {
   AppRoutes._();
@@ -32,6 +35,16 @@ class AppRoutes {
           builder: (context) => WatchTrailerView(
             url: args["url"],
           ),
+        );
+
+      case RoutesNames.cinemaDetails:
+        return MaterialPageRoute(
+          builder: (context) => const CinemaDetailsView(),
+        );
+
+      case RoutesNames.cinemaSeats:
+        return MaterialPageRoute(
+          builder: (context) => const SelectSeatsScreen(),
         );
 
       default:

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:tentwenty_assement/res/app_colors.dart';
-import 'package:tentwenty_assement/res/app_images.dart';
 import 'package:tentwenty_assement/res/movie_search_status.dart';
 import 'package:tentwenty_assement/view/home/widgets/genres_view.dart';
 import 'package:tentwenty_assement/view/home/widgets/search_query_view.dart';

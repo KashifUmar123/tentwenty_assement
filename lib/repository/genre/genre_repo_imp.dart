@@ -19,9 +19,8 @@ class GenreRepoImp implements GenreRepo {
           'accept': 'application/json',
         },
       );
-      log(jsonDecode(response.body).toString());
+
       GenresModel genresModel = GenresModel.fromJson(jsonDecode(response.body));
-      log("genre model done");
 
       for (int i = 0; i < genresModel.genres.length; i++) {
         var imagePath = await getGenreCoverById(genresModel.genres[i].id);

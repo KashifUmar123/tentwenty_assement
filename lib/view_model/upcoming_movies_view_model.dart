@@ -1,7 +1,5 @@
 // ignore_for_file: use_build_context_synchronously
-
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:tentwenty_assement/data/response/api_response.dart';
 import 'package:tentwenty_assement/model/genre_model.dart';
@@ -90,14 +88,6 @@ class UpcomingMoviesViewModel extends ChangeNotifier {
     } catch (e) {
       log(e.toString());
       setUpcomingMovies(ApiResponse.error(e.toString()));
-    }
-  }
-
-  Future fetchMovieDetails(int id) async {
-    try {
-      var response = await _moviesRepo.getMovieDetail(id);
-    } catch (e) {
-      log(e.toString());
     }
   }
 }
