@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:tentwenty_assement/view_model/upcoming_movies_view_model.dart';
+import 'package:tentwenty_assement/view_model/movies_view_model.dart';
 import '../../../data/response/status.dart';
 import '../../../res/app_colors.dart';
 import '../../../res/app_images.dart';
@@ -15,10 +15,10 @@ class GenresView extends StatefulWidget {
 }
 
 class _GenresViewState extends State<GenresView> {
-  late UpcomingMoviesViewModel upcomingMoviesViewModel;
+  late MoviesViewModel upcomingMoviesViewModel;
   @override
   Widget build(BuildContext context) {
-    upcomingMoviesViewModel = Provider.of<UpcomingMoviesViewModel>(context);
+    upcomingMoviesViewModel = Provider.of<MoviesViewModel>(context);
     switch (upcomingMoviesViewModel.genres.status) {
       case Status.LOADING:
         return const Expanded(

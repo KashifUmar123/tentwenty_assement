@@ -1,23 +1,24 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:tentwenty_assement/data/apis/apis.dart';
 import 'package:tentwenty_assement/model/upcoming_movies_model.dart';
 import 'package:tentwenty_assement/repository/movie/movie_repo.dart';
+import 'package:tentwenty_assement/res/endpoints.dart';
 
 class MovieRepImp implements MoviesRepo {
+  String? apiKey = dotenv.env['API_KEY'];
   @override
   Future getMovies() async {
     try {
       http.Response response = await Apis.get(
-        url:
-            "https://api.themoviedb.org/3/movie/upcoming?api_key=73457934af58500330f4989b09ad4691",
+        url: "${Endpoints.upcomingMovies}?api_key=${apiKey!}",
         headers: {
           'accept': 'application/json',
         },
       );
-      // log(jsonDecode(response.body).toString());
 
       return UpcomingMovies.fromJson(jsonDecode(response.body));
     } catch (e) {
@@ -29,10 +30,8 @@ class MovieRepImp implements MoviesRepo {
   Future getMovieDetail(int id) async {
     try {
       http.Response response = await Apis.get(
-        url: "https://api.themoviedb.org/3/movie/$id",
+        url: "${Endpoints.movieDetails}/$id?api_key=${apiKey!}",
         headers: {
-          'Authorization':
-              'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MzQ1NzkzNGFmNTg1MDAzMzBmNDk4OWIwOWFkNDY5MSIsInN1YiI6IjY0ZDM4NGVmMDM3MjY0MDExYzA1NzI3MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.gsMMvr_S_gfjuauDh-V-5QCRFxTMdCNRqaTxwS5zYOk',
           'accept': 'application/json',
         },
       );
@@ -47,8 +46,7 @@ class MovieRepImp implements MoviesRepo {
   Future getMovieTrailerUrl(int id) async {
     try {
       var response = await Apis.get(
-        url:
-            'https://api.themoviedb.org/3/movie/$id/videos?api_key=73457934af58500330f4989b09ad4691',
+        url: '${Endpoints.movieDetails}/$id/videos?api_key=${apiKey!}',
         headers: {
           'accept': 'application/json',
         },
@@ -63,7 +61,6 @@ class MovieRepImp implements MoviesRepo {
             .toList();
 
         if (trailers.isNotEmpty) {
-          // return 'https://www.youtube.com/watch?v=${trailers[0]['key']}';
           return trailers[0]['key'];
         }
 

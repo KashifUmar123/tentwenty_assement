@@ -12,7 +12,7 @@ import 'package:tentwenty_assement/res/movie_search_status.dart';
 import 'package:tentwenty_assement/utils/locator/locator.dart';
 import 'package:tentwenty_assement/utils/nav_service.dart';
 
-class UpcomingMoviesViewModel extends ChangeNotifier {
+class MoviesViewModel extends ChangeNotifier {
   ApiResponse<UpcomingMovies> upcomingMovies = ApiResponse.loading();
   ApiResponse<GenresModel> genres = ApiResponse.loading();
   ValueNotifier<MoiveSearchStatus> currentSearchStatus =

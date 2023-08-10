@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 
 import '../../../res/app_colors.dart';
 import '../../../res/movie_search_status.dart';
-import '../../../view_model/upcoming_movies_view_model.dart';
+import '../../../view_model/movies_view_model.dart';
 
 class SearchWidget extends StatefulWidget {
   const SearchWidget({
@@ -21,7 +21,7 @@ class SearchWidget extends StatefulWidget {
 }
 
 class _SearchWidgetState extends State<SearchWidget> {
-  late UpcomingMoviesViewModel upcomingMoviesViewModel;
+  late MoviesViewModel upcomingMoviesViewModel;
   @override
   void initState() {
     super.initState();
@@ -29,7 +29,7 @@ class _SearchWidgetState extends State<SearchWidget> {
 
   @override
   Widget build(BuildContext context) {
-    upcomingMoviesViewModel = Provider.of<UpcomingMoviesViewModel>(context);
+    upcomingMoviesViewModel = Provider.of<MoviesViewModel>(context);
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.5.w),
       child: Container(

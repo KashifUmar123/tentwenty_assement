@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:tentwenty_assement/view/home/widgets/movie_tile_widget.dart';
-import 'package:tentwenty_assement/view_model/upcoming_movies_view_model.dart';
+import 'package:tentwenty_assement/view_model/movies_view_model.dart';
 
 import '../../../data/response/status.dart';
 import '../../../res/app_colors.dart';
@@ -15,10 +15,10 @@ class UpcomingMoviesView extends StatefulWidget {
 }
 
 class _UpcomingMoviesViewState extends State<UpcomingMoviesView> {
-  late UpcomingMoviesViewModel upcomingMoviesViewModel;
+  late MoviesViewModel upcomingMoviesViewModel;
   @override
   Widget build(BuildContext context) {
-    upcomingMoviesViewModel = Provider.of<UpcomingMoviesViewModel>(context);
+    upcomingMoviesViewModel = Provider.of<MoviesViewModel>(context);
     switch (upcomingMoviesViewModel.upcomingMovies.status) {
       case Status.LOADING:
         return const Expanded(
@@ -32,12 +32,12 @@ class _UpcomingMoviesViewState extends State<UpcomingMoviesView> {
       case Status.COMPLETED:
         return Expanded(
           child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 20.5.w),
+            margin: EdgeInsets.symmetric(horizontal: 20.w),
             color: AppColors.lightGreyColor,
             child: ListView.separated(
-              padding: EdgeInsets.symmetric(vertical: 10.h),
+              padding: EdgeInsets.symmetric(vertical: 30.h),
               separatorBuilder: (context, index) => SizedBox(
-                height: 10.h,
+                height: 20.h,
               ),
               itemCount:
                   upcomingMoviesViewModel.upcomingMovies.data!.results.length,

@@ -1,21 +1,24 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:tentwenty_assement/model/genre_model.dart';
 import 'package:tentwenty_assement/repository/genre/genre_repo.dart';
 import 'package:http/http.dart' as http;
+import 'package:tentwenty_assement/res/endpoints.dart';
 
 import '../../data/apis/apis.dart';
 
 class GenreRepoImp implements GenreRepo {
+  String? apiKey = dotenv.env['API_KEY'];
+  String? token = dotenv.env['TOKEN'];
   @override
   Future getGenres() async {
     try {
       http.Response response = await Apis.get(
-        url: "https://api.themoviedb.org/3/genre/movie/list?language=en",
+        url: Endpoints.genres,
         headers: {
-          'Authorization':
-              'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MzQ1NzkzNGFmNTg1MDAzMzBmNDk4OWIwOWFkNDY5MSIsInN1YiI6IjY0ZDM4NGVmMDM3MjY0MDExYzA1NzI3MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.gsMMvr_S_gfjuauDh-V-5QCRFxTMdCNRqaTxwS5zYOk',
+          'Authorization': 'Bearer $token',
           'accept': 'application/json',
         },
       );
@@ -37,8 +40,7 @@ class GenreRepoImp implements GenreRepo {
   Future getGenreCoverById(int id) async {
     try {
       http.Response response = await Apis.get(
-        url:
-            "https://api.themoviedb.org/3/movie/$id/images?api_key=73457934af58500330f4989b09ad4691",
+        url: "${Endpoints.movieDetails}/$id/images?api_key=${apiKey!}",
         headers: {
           'accept': 'application/json',
         },

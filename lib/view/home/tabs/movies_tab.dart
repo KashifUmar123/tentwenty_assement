@@ -7,7 +7,7 @@ import 'package:tentwenty_assement/res/movie_search_status.dart';
 import 'package:tentwenty_assement/view/home/widgets/genres_view.dart';
 import 'package:tentwenty_assement/view/home/widgets/search_query_view.dart';
 import 'package:tentwenty_assement/view/home/widgets/upcoming_movies_view.dart';
-import 'package:tentwenty_assement/view_model/upcoming_movies_view_model.dart';
+import 'package:tentwenty_assement/view_model/movies_view_model.dart';
 import '../widgets/search_widget.dart';
 
 class MoviesTab extends StatefulWidget {
@@ -20,7 +20,7 @@ class MoviesTab extends StatefulWidget {
 class _MoviesTabState extends State<MoviesTab> {
   ValueNotifier<bool> isSearchOpen = ValueNotifier(false);
 
-  late UpcomingMoviesViewModel upcomingMoviesViewModel;
+  late MoviesViewModel upcomingMoviesViewModel;
 
   @override
   void initState() {
@@ -33,7 +33,7 @@ class _MoviesTabState extends State<MoviesTab> {
 
   @override
   Widget build(BuildContext context) {
-    upcomingMoviesViewModel = Provider.of<UpcomingMoviesViewModel>(context);
+    upcomingMoviesViewModel = Provider.of<MoviesViewModel>(context);
     return SizedBox(
       height: 812.h - 75.h,
       child: Column(

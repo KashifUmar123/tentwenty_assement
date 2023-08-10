@@ -38,84 +38,85 @@ class _SelectSeatsScreenState extends State<SelectSeatsScreen> {
               height: 69.5.h,
             ),
             _header(),
-            Container(
-              height: 680.h,
-              width: 375.w,
-              color: AppColors.whiteColor,
-              child: ListView(
-                padding: EdgeInsets.zero,
-                children: [
-                  SizedBox(
-                    height: 60.h,
-                  ),
-                  Container(
-                    height: 340.h,
-                    width: 330.w,
-                    padding: EdgeInsets.symmetric(horizontal: 20.w),
-                    color: AppColors.lightGreyColor,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        SizedBox(
-                          height: 60.h,
-                        ),
-                        Image.asset(AppImages.screen),
-                        Center(
-                          child: SizedBox(
-                            height: 189.h,
-                            width: 328.w,
-                            child: Column(
-                              children: [
-                                for (int i = 0; i < 10; i++)
-                                  _getRows(
-                                    i: i,
-                                    cols: 24,
-                                  ),
-                              ],
+            Expanded(
+              child: SizedBox(
+                height: 680.h,
+                width: 375.w,
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  children: [
+                    SizedBox(
+                      height: 15.h,
+                    ),
+                    Container(
+                      height: 380.h,
+                      width: 330.w,
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      color: AppColors.lightGreyColor,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          SizedBox(
+                            height: 60.h,
+                          ),
+                          Image.asset(AppImages.screen),
+                          Center(
+                            child: SizedBox(
+                              height: 189.h,
+                              width: 328.w,
+                              child: Column(
+                                children: [
+                                  for (int i = 0; i < 10; i++)
+                                    _getRows(
+                                      i: i,
+                                      cols: 24,
+                                    ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            InkWell(
-                              onTap: () {},
-                              child: CircleAvatar(
-                                radius: 15.r,
-                                backgroundColor: AppColors.whiteColor,
-                                child: const Icon(
-                                  Icons.add,
-                                  color: AppColors.blackColor,
-                                  size: 20,
+                          SizedBox(
+                            height: 40.h,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              InkWell(
+                                onTap: () {},
+                                child: CircleAvatar(
+                                  radius: 15.r,
+                                  backgroundColor: AppColors.whiteColor,
+                                  child: const Icon(
+                                    Icons.add,
+                                    color: AppColors.blackColor,
+                                    size: 20,
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 6.w,
-                            ),
-                            InkWell(
-                              onTap: () {},
-                              child: CircleAvatar(
-                                radius: 15.r,
-                                backgroundColor: AppColors.whiteColor,
-                                child: const Icon(
-                                  Icons.remove,
-                                  color: AppColors.blackColor,
-                                  size: 20,
+                              SizedBox(
+                                width: 6.w,
+                              ),
+                              InkWell(
+                                onTap: () {},
+                                child: CircleAvatar(
+                                  radius: 15.r,
+                                  backgroundColor: AppColors.whiteColor,
+                                  child: const Icon(
+                                    Icons.remove,
+                                    color: AppColors.blackColor,
+                                    size: 20,
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  _seatsDetailsWidget(),
-                ],
+                    _seatsDetailsWidget(),
+                  ],
+                ),
               ),
             ),
           ],

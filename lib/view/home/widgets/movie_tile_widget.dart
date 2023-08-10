@@ -7,7 +7,7 @@ import 'package:tentwenty_assement/utils/routes/route_names.dart';
 
 import '../../../model/upcoming_movies_model.dart';
 import '../../../res/app_colors.dart';
-import '../../../view_model/upcoming_movies_view_model.dart';
+import '../../../view_model/movies_view_model.dart';
 
 class MovieTileWidget extends StatefulWidget {
   const MovieTileWidget({
@@ -22,7 +22,7 @@ class MovieTileWidget extends StatefulWidget {
 }
 
 class _MovieTileWidgetState extends State<MovieTileWidget> {
-  late UpcomingMoviesViewModel upcomingMoviesViewModel;
+  late MoviesViewModel upcomingMoviesViewModel;
   final NavService navService = locator<NavService>();
   @override
   void initState() {
@@ -31,7 +31,7 @@ class _MovieTileWidgetState extends State<MovieTileWidget> {
 
   @override
   Widget build(BuildContext context) {
-    upcomingMoviesViewModel = Provider.of<UpcomingMoviesViewModel>(context);
+    upcomingMoviesViewModel = Provider.of<MoviesViewModel>(context);
     return SizedBox(
       height: 180.h,
       width: 335.w,

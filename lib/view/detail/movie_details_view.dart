@@ -9,7 +9,7 @@ import 'package:tentwenty_assement/res/app_colors.dart';
 import 'package:tentwenty_assement/utils/locator/locator.dart';
 import 'package:tentwenty_assement/utils/nav_service.dart';
 import 'package:tentwenty_assement/utils/routes/route_names.dart';
-import 'package:tentwenty_assement/view_model/upcoming_movies_view_model.dart';
+import 'package:tentwenty_assement/view_model/movies_view_model.dart';
 
 class MoviesDetilsView extends StatefulWidget {
   const MoviesDetilsView({super.key});
@@ -20,10 +20,10 @@ class MoviesDetilsView extends StatefulWidget {
 
 class _MoviesDetilsViewState extends State<MoviesDetilsView> {
   final NavService navService = locator<NavService>();
-  late UpcomingMoviesViewModel upcomingMoviesViewModel;
+  late MoviesViewModel upcomingMoviesViewModel;
   @override
   Widget build(BuildContext context) {
-    upcomingMoviesViewModel = Provider.of<UpcomingMoviesViewModel>(context);
+    upcomingMoviesViewModel = Provider.of<MoviesViewModel>(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
