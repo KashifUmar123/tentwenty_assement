@@ -20,6 +20,7 @@ class TenTwentyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // init the screen util with the actual size of the app in figma file
     ScreenUtil.init(
       context,
       designSize: const Size(375, 812),

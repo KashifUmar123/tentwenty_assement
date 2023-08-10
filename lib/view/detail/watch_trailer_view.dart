@@ -19,7 +19,6 @@ class _WatchTrailerViewState extends State<WatchTrailerView> {
 
   @override
   void initState() {
-    // _controller.value.position
     _controller = YoutubePlayerController(
       initialVideoId: widget.url,
       flags: const YoutubePlayerFlags(
@@ -45,7 +44,7 @@ class _WatchTrailerViewState extends State<WatchTrailerView> {
         children: [
           Positioned(
             right: 10.w,
-            top: 20.h,
+            top: 50.h,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.greenColor,

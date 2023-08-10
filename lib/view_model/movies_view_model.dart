@@ -13,13 +13,20 @@ import 'package:tentwenty_assement/utils/locator/locator.dart';
 import 'package:tentwenty_assement/utils/nav_service.dart';
 
 class MoviesViewModel extends ChangeNotifier {
+  // data holders
   ApiResponse<UpcomingMovies> upcomingMovies = ApiResponse.loading();
   ApiResponse<GenresModel> genres = ApiResponse.loading();
+
+  // current status of searching tracker
   ValueNotifier<MoiveSearchStatus> currentSearchStatus =
       ValueNotifier(MoiveSearchStatus.SearchNotCliecked);
+
+  // getting repositories from service locator
   final MoviesRepo _moviesRepo = locator<MovieRepImp>();
   final GenreRepo _genresRepo = locator<GenreRepoImp>();
+  // selected movie data
   Results? selectedResults;
+  // trailer url (in this case it will be youtube id)
   String selectedTrailerUrl = "";
 
   setSelectedResults(Results results) {

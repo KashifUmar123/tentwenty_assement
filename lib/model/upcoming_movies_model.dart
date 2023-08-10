@@ -18,12 +18,6 @@ class UpcomingMovies {
       page: json['page'],
       results:
           List<Results>.from(json['results'].map((e) => Results.fromJson(e))),
-      // if (json['results'] != null) {
-      //   results = new List<Results>();
-      //   json['results'].forEach((v) {
-      //     results.add(new Results.fromJson(v));
-      //   });
-      // }
       totalPages: json['total_pages'],
       totalResults: json['total_results'],
     );
